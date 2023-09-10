@@ -2,6 +2,7 @@ var icon_menu = document.querySelector('.icon_menu')
 var side_bar = document.querySelector('.side_bar')
 var btn_size_bar = document.querySelector('.btn_side_bar')
 var text_menu = document.querySelectorAll('.text_menu')
+var price = document.querySelector('.price')
 
 
 var numberCredits = document.querySelector('.number_credits')
@@ -23,6 +24,7 @@ var year = document.getElementById("year")
 var code_course = document.getElementById("code_course")
 var code_course_value = code_course.value
 var btn_add_course = document.getElementById("btn_add_course")
+var bg = document.querySelector('.bg')
 
 var tableList = document.getElementById('table_list')
 
@@ -72,12 +74,14 @@ btn_add_course.addEventListener('click', () => {
 calculator.addEventListener('click', () => {
     main_calculator.classList.remove('hide')
     main_list.classList.add('hide')
+    bg.classList.add('hide')
 
 })
 
 list.addEventListener('click', () => {
     main_list.classList.remove('hide')
     main_calculator.classList.add('hide')
+    bg.classList.add('hide')
 
 })
 
@@ -112,19 +116,10 @@ codeInput.addEventListener('keyup', function (event) {
     }
 });
 
-// nameInput.addEventListener('keyup', function(event) {
-//     if (event.key === 'Enter') {
-//         addTableRow();
-//     }
-// });
-
-
-
-
 // Hàm thêm hàng mới vào bảng
 function addTableRow() {
     const codeValue = codeInput.value;
-    const nameValue = numberCredits.value * coefficient.value * 450000;
+    const nameValue = numberCredits.value * coefficient.value * price.value;
 
     // Tạo một hàng mới trong bảng
     const row = document.createElement('tr');
@@ -153,7 +148,9 @@ const addCourse = () => {
         ma_mon: codeInput.value,
         ten_mon: nameInput.value,
         he_so: numberCredits.value,
-        tin_chi: coefficient.value
+        tin_chi: coefficient.value,
+        price: price.value
+
     }
     
     let optionElement = document.createElement("option");
@@ -226,13 +223,8 @@ btnAddList2.addEventListener("click", function () {
   const selectedCourseIndex = codeCourseSelect.value;
   const selectedCourse = danhsachmon[selectedCourseIndex];
   const selectedSemester = semesterSelect.value;
-
- 
-
-
-  const hocPhi = selectedCourse.he_so * selectedCourse.tin_chi * 450000;
-  let tin_chi_mon_hoc = selectedCourse.tin_chi;
-  
+  const hocPhi = selectedCourse.he_so * selectedCourse.tin_chi * price.value;
+  let tin_chi_mon_hoc = selectedCourse.he_so;
   
   soMon = parseInt(soMon)
   soMon2 = parseInt(soMon2)
@@ -289,3 +281,42 @@ clearLocalStorageButton.addEventListener("click", function () {
   // Tải lại trang để áp dụng thay đổi (tùy chọn)
   location.reload();
 });
+
+
+
+var tongSoMon = document.querySelector('.tongSoMon')
+const tongSoMonElement = tongSoMon.innerHTML;
+
+tongSoMon.addEventListener('mouseover', function() {
+    const result = soMon + soMon2 +soMon3;
+    tongSoMon.innerHTML = result;
+  });
+  
+  tongSoMon.addEventListener('mouseout', function() {
+    tongSoMon.innerHTML = tongSoMonElement; 
+  });
+
+var tongTinChi = document.querySelector('.tongTinChi')
+const tongTinChiElement = tongTinChi.innerHTML;
+
+tongTinChi.addEventListener('mouseover', function() {
+    const tinchi = tin_chi1 + tin_chi2 +tin_chi3;
+    tongTinChi.innerHTML = tinchi;
+  });
+  
+  tongTinChi.addEventListener('mouseout', function() {
+    tongTinChi.innerHTML = tongTinChiElement; 
+  });
+
+  var tongHocPhi = document.querySelector('.tongHocPhi')
+const tongHocPhiElement = tongHocPhi.innerHTML;
+
+tongHocPhi.addEventListener('mouseover', function() {
+    const tinchi = hocPhi1 + hocPhi2 +hocPhi3 + ' VNĐ';
+    tongHocPhi.innerHTML = tinchi;
+  });
+  
+  tongHocPhi.addEventListener('mouseout', function() {
+    tongHocPhi.innerHTML = tongHocPhiElement; 
+  });
+
