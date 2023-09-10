@@ -22,7 +22,7 @@
     <div class="main_calculator hide">
         <div class="alert">
             <p class="alert_item">Mức đơn vị phí năm 2023 là: </p>
-            <p class="price">450.000 VNĐ</p>
+            <input type="text" class="price" placeholder="VD: 450.000">
         </div>
         <div class="add_course">
             <p class="text_add">Thêm môn: </p>
@@ -44,7 +44,7 @@
                     <option value="ky2">Kỳ 2</option>
                     <option value="ky3">Kỳ 3</option>
                 </select>
-                <input type="number" id="year" placeholder="Năm">
+              
                 <select name="code_course" id="code_course">
 
                 </select>
@@ -54,14 +54,18 @@
 
         <table id="myTable">
             <tr>
-                <th class="colum1">Ma mon</th>
-                <th class="colum2">Hoc phi</th>
+                <th class="colum1">Mã môn</th>
+                <th class="colum2">Học phí</th>
             </tr>
 
         </table>
     </div>
 
 
+
+
+    <!-- --------------------------------------------------------------------------- -->
+    
 
 
     <!-- --------------------------------------------------------------------------- -->
@@ -74,9 +78,9 @@
                 <tr>
                     <th class="1 list_item">STT</th>
                     <th class="2 list_item">Kỳ học</th>
-                    <th class="3 list_item">Tổng số môn </th>
-                    <th class="4 list_item">Tổng tín chỉ</th>
-                    <th class="5 list_item">Học phí</th>
+                    <th class="tongSoMon list_item">Tổng số môn </th>
+                    <th class="tongTinChi list_item">Tổng tín chỉ</th>
+                    <th class="tongHocPhi list_item">Học phí</th>
                 </tr>
                 <tr>
                     <th>1</th>
@@ -103,6 +107,8 @@
             </tbody>  
         </table>
     </div>
+
+  
 
 
     <!-- _______________________________________________________________________ -->
@@ -136,7 +142,9 @@
         </ul>
     </div>
 
-
+    <div class="logo">
+            <img  class="logo" src="./LogoTLU.png" alt="">
+        </div>
 
     <!-- --------------------------------------------------------------------------- -->
 
