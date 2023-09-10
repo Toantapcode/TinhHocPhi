@@ -66,6 +66,7 @@
     justify-content: start;
     align-items: center;
     overflow: hidden;
+    transition: 0.5s;
 }
 
 .btn_side_bar:hover{
@@ -104,6 +105,17 @@
     color:#000;
     margin-left: 300px;
     position: absolute;
+    margin-left: 23vw;
+    margin-top: 100px;
+    background-color: #ffffff; /* Màu nền */
+    border-radius: 15px; /* Bo góc */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng */
+    padding: 2rem;
+    margin-left: 300px;
+    margin-right: 20px; /* Khoảng cách bên phải để không đè lên logo */
+    position: absolute;
+    margin-left: 23vw;
+    margin-top: 100px;
 }
 
 .scale_width{
@@ -117,10 +129,7 @@
 
 /* ---------------------------------------------------- */
 
-.main_calculator{
-    margin-left: 23vw;
-    margin-top: 100px;
-}
+
 
 .alert{
     display: flex;
@@ -167,6 +176,7 @@ input,select{
     font-size: 20px;
     transition: 0.4s;
     margin-top: -20px;
+    animation: neon neon 1.5s ease-in-out infinite alternate;;
 }
 
 .btn_add:hover, .btn_add_list2:hover{
@@ -187,9 +197,34 @@ input,select{
     margin-top: 10px;
 }
 
-#myTable{
-    border: 1px solid #ED002E ;
-    margin:20px auto;
+#myTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ED002E;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#myTable th {
+    background-color: #ED002E;
+    color: white;
+    padding: 10px;
+}
+
+#myTable td {
+    padding: 10px;
+}
+
+#myTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#myTable tr:hover {
+    background-color: #ED002E;
+    color: white;
+    cursor: pointer;
 }
 
 
@@ -207,7 +242,7 @@ tr{
 
 
 /* --------------------------------------------------------- */
-.main_list{
+.main_list {
     float: right;
     right: 0;
     padding-top: 100px;
@@ -216,6 +251,79 @@ tr{
     margin-right: 20vw;
 }
 
-.list_item{
+.list_item {
     width: 300px;
+    background-color: #fff; /* Màu nền của phần tử */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+    margin-bottom: 20px; /* Khoảng cách giữa các phần tử */
+    padding: 10px;
+
+    transition: background-color 0.3s, transform 0.5s;
 }
+
+.list_item:hover {
+    background-color: #ED002E; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+   
+}
+
+
+
+.logo{
+    width: 120px;
+    font-size: 20px;
+    /* background-color:#18191f; */
+    color: #fff;
+    /* box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
+    2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
+    inset 2px 2px 10px #00000080; */
+    border-radius: 29px;
+    animation: neon 3s infinite;
+    animation: animate 3s linear infinite;
+
+    text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff,
+    0 0 200px #0072ff;
+    z-index: 1;
+    position: absolute;
+    float: right;
+    top:  10px;
+    right: 0;
+}
+
+@keyframes animate  {
+    from{
+        filter: hue-rotate(0deg);
+    }
+    to{
+        filter: hue-rotate(360deg);
+    }
+}
+
+
+
+.bg{    
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-left: 70px;
+    z-index: 0;
+}
+
+@keyframes neon {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+  i{
+    color: #ff4da6;
+    animation: neon 1s infinite;
+  }
+
+  
+
+  
